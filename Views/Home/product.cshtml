@@ -1,0 +1,70 @@
+@model ProductViewModel
+
+<br>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><a style="min-width:100%;" class="btn btn-success btn-lg btn-block" href="/">Torna al menù</a></div>
+    <div class="col-md-4"></div>
+</div>
+<br>
+<div class="row">
+    
+    <div class="col-md-6">
+        <img style="min-width:100%;border-radius:10px;max-width:100%;" src="@Model.Immagine" />
+        
+    </div>
+    
+    <div class="col-md-6">
+        
+        
+            <br>
+        <form action="aggiungiprodotto?id=20" method="POST">
+            
+            @foreach(IngrediantsViewModel ingrediente in Model.Ingrediants){
+                <input style="width:60px;height:60px;" type="checkbox" name="40" id="@ingrediente.ID" checked/> <label style="font-size:40px;" for="40">@ingrediente.Nome</label>
+                <bR>
+            }           
+            
+            
+            <bR>
+                        <br>
+            <h3>Quantità</h3>
+            <select class="form-select" name="quantita">
+                                
+                                    <option selected value="1">1</option>
+                                
+                                <option value="2">2</option>
+                
+                
+                                
+                                <option value="3">3</option>
+                
+                
+                                
+                                <option value="4">4</option>
+                
+                
+                                
+                                <option value="5">5</option>
+                
+                
+                              </select>
+            <br>
+            <input class="btn btn-success btn-lg btn-block" type="submit" value="Aggiungi" />
+            
+            <br><br>
+            <label style="font-size:30px;">Prodotto surgelato **</label><br>
+            <label style="font-size:30px;">Contiene allergeni ***</label>
+        </form>
+        
+        
+        
+        
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <h1><i>Ti potrebbe interessare...</i></h1>
+    </div>
+</div>

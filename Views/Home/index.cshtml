@@ -1,0 +1,74 @@
+@model List<ProductViewModel>
+    
+    <br><br>
+        <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <a style="min-width:100%;" class="btn btn-success btn-lg btn-block" href="carrello">Carrello - 0€</a>
+        </div>
+        
+        <div class="col-md-4">
+                        <a class="btn btn-success btn-lg btn-block " style="min-width:100%;" href="/smartmedia/index?mobqr=1">Continua su Smartphone</a>
+                    </div>
+        
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <!--<center><h2><i>Continua su <br>Smartphone</i></h2></center><br>
+            <center><iframe src="https://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=http://ristoranti.smartmediaworld.net/auth.php?codiceautorizzazione=" title=""></iframe></center>-->
+        </div>
+        <div class="col-md-4">
+            <!--<a style="min-width:100%;" class="btn btn-success btn-lg btn-block" href="carrello">Carrello - 0€</a>-->
+            <br>
+            <center><h2><i>Seleziona categoria</i></h2></center>
+            
+              <select class="form-select" aria-label="Default select example" onchange="document.location.replace(this.value);">
+                <option selected>Selezionare una categoria</option>
+                                <option value="/smartmedia/index.php?idcategoria=2">Bibite</option>
+                                    <option value="/smartmedia/index.php?idcategoria=9">BURGER</option>
+                                    <option value="/smartmedia/index.php?idcategoria=10">Rosticceria </option>
+                                    <option value="/smartmedia/index.php?idcategoria=11">Birre</option>
+                                    <option value="/smartmedia/index.php?idcategoria=12">PORCHETTA</option>
+                                    <option value="/smartmedia/index.php?idcategoria=13">Patatine & Nuggets</option>
+                                    <option value="/smartmedia/index.php?idcategoria=14">HOTDOG</option>
+                                    <option value="/smartmedia/index.php?idcategoria=15">Dolci e Sfizi</option>
+                                    <option value="/smartmedia/index.php?idcategoria=17">SALSE</option>
+                                    <option value="/smartmedia/index.php?idcategoria=18">NOVITÀ </option>
+                                  </select>
+            
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <br><br>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          
+         @foreach(ProductViewModel product in Model){
+          <div class="col">
+            <div class="card shadow-sm">
+                <a href="/Home/Product/@product.ID"><img style="max-width:100%;height:279px;" src="@product.Immagine" /></a>
+
+              <div class="card-body">
+                  <h3>@product.NomeProdotto</h3>
+                  <h4><font color="green">€@product.Prezzo</font></h4>
+                  <p class="card-text">@foreach(IngrediantsViewModel ingrediente in product.Ingrediants) { @ingrediente.Nome }</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                      <a href="/Home/Product/@product.ID" class="btn btn-secondary">Aggiungi</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+         }
+                     
+        
+      </div>
+    </div>
+  </div>
+    
